@@ -1,0 +1,44 @@
+body {/* Disposición automática */
+/* index Español */
+
+background: #FFFFFF;
+
+}
+
+.index {/* Disposición automática */
+  height: 90dvh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding: 5dvh;
+}
+
+p {/* ¡Hola! Bienvenido al mapa interactivo del Metro de Sevilla */
+
+width: 70dvw;
+
+/* M3/headline/medium */
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 28px;
+line-height: 36px;
+
+color: #000000;
+margin: 0;
+}
+
+h1 {/* ¡Hola! Bienvenido al mapa interactivo del Metro de Sevilla */
+
+width: 80dvw;
+
+/* M3/headline/medium */
+font-family: 'Roboto';
+font-style: normal;
+
+color: #000000;
+margin: 0;
+
+}
