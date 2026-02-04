@@ -68,9 +68,12 @@ jobs:
       - name: Verify output directory
         run: |
           ls -la ./out
-          find ./out -type l -ls
+          du -sh ./out
           find ./out -name ".*"
           du -sh ./out
+          find ./out -type l -ls
+          du -sh ./out
+          find ./out -type f -links +1
 
       - name: Remove symlinks from output directory
         run: |
