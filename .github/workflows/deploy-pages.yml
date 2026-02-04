@@ -63,8 +63,10 @@ jobs:
 
       - name: Build with Next.js
         run: |
-          # Run build
+          # Build the project
           ${{ steps.detect-package-manager.outputs.runner }} next build
+          # Export static site
+          ${{ steps.detect-package-manager.outputs.runner }} next export
 
       - name: Verify output directory
         run: ls -la ./out
