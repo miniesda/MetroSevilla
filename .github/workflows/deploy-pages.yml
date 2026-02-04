@@ -83,7 +83,14 @@ jobs:
         run: |
           rm -rf ./temp-out
           mkdir ./temp-out
-          cp -r ./out/* ./temp-out/
+          cp -rL ./out/* ./temp-out/
+          
+      - name: Verify no links remain
+        run: |
+          echo "Symlinks:"
+          find ./temp-out -type l
+          echo "Hard links:"
+          find ./temp-out -type f -links +1
 
       - name: Upload static site files
         uses: actions/upload-artifact@v4
