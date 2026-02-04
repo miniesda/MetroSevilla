@@ -68,11 +68,11 @@ jobs:
       - name: Verify output directory
         run: ls -la ./out
 
-      - name: Upload static files
+      - name: Upload a test file
         uses: actions/upload-artifact@v4
         with:
-          name: github-pages
-          path: ./out/*
+          name: test-file
+          path: ./out/404.html
       
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
