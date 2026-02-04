@@ -93,7 +93,7 @@ jobs:
           find ./temp-out -type f -links +1
 
       - name: Upload static site files
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-pages-artifact@v4
         with:
           name: github-pages
           path: ./my-app/temp-out
