@@ -90,10 +90,10 @@ jobs:
         run: ls -la ./out
 
       - name: Upload site artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-artifact@v3
         with:
-          path: ./out
           name: github-pages
+          path: ./out
           retention-days: 1
       
       - name: Deploy to GitHub Pages
