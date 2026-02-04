@@ -72,7 +72,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: test-file
-          path: ./my-app/out/404.html
+          path: ./my-app/out
       
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
