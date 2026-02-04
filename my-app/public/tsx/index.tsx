@@ -18,14 +18,14 @@ export default function Index() {
                 width={313}
                 height={157}
             />
-            <a href="/arview">
+            <Link href="/arview">
             <Image
                 src={languaje === "en" ? "https://raw.githubusercontent.com/miniesda/MetroSevilla/main/my-app/public/img/start.png" : "https://raw.githubusercontent.com/miniesda/MetroSevilla/main/my-app/public/img/empezar.png"}
                 alt={languaje === "en" ? "Start AR" : "Empezar AR"}
                 width={308}
                 height={60}
             />
-            </a>
+            </Link>
         </div>
     );
 }
