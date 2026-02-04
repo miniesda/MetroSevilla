@@ -89,11 +89,18 @@ jobs:
       - name: Verify output directory
         run: ls -la ./out
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+      - name: Upload site artifact
+        uses: actions/upload-pages-artifact@v1
         with:
           path: ./out
-          publish_branch: gh-pages
+          name: github-pages
+          retention-days: 1
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
 
   # Deployment job
   deploy:
