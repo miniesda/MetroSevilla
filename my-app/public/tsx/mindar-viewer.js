@@ -37,10 +37,10 @@ export default function MindARViewer() {
   if (!aframeLoaded || !pluginLoaded) return <div>Loading AR...</div>;
 
   return (
-    <a-scene mindar-image="imageTargetSrc: ../targets/targets.mind; maxTrack: 22" color-space="sRGB" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
+    <a-scene mindar-image="imageTargetSrc: https://raw.githubusercontent.com/miniesda/MetroSevilla/main/my-app/public/targets/targets.mind; maxTrack: 22" color-space="sRGB" vr-mode-ui="enabled: false" device-orientation-permission-ui="enabled: false">
       <a-assets>
-        <img id="icon-metro" src="../img/metro-icon.png"/>
-        <img id="label-bg" src="../img/label-bg.png"/>
+        <img id="icon-metro" src="https://raw.githubusercontent.com/miniesda/MetroSevilla/main/my-app/public/img/metro-icon.png"/>
+        <img id="label-bg" src="https://raw.githubusercontent.com/miniesda/MetroSevilla/main/my-app/public/img/label-bg.png"/>
       </a-assets>
 
       <a-camera position="0 0 0" look-controls="enabled: false"></a-camera>
