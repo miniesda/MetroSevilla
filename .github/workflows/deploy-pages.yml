@@ -69,6 +69,7 @@ jobs:
         run: |
           ls -la ./out
           find ./out -type l -ls
+          find ./out -name ".*"
           du -sh ./out
 
       - name: Upload static site files
