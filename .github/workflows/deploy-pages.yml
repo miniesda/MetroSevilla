@@ -68,8 +68,8 @@ jobs:
       - name: Verify output directory
         run: |
           ls -la ./out
-          find ./my-app/out -type l -ls
-          du -sh ./my-app/out
+          find ./out -type l -ls
+          du -sh ./out
 
       - name: Upload static site files
         uses: actions/upload-artifact@v4
