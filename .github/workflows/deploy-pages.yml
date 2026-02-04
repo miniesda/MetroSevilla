@@ -79,11 +79,17 @@ jobs:
         run: |
           find ./out -type l -delete
 
+      - name: Prepare clean static files
+        run: |
+          rm -rf ./temp-out
+          mkdir ./temp-out
+          cp -r ./out/* ./temp-out/
+
       - name: Upload static site files
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
-          path: ./my-app/out
+          path: ./my-app/temp-out
       
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
