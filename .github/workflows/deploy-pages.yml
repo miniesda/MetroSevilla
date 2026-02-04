@@ -17,6 +17,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    # Ensure run steps execute inside the app folder
     defaults:
       run:
         working-directory: my-app
@@ -46,7 +47,9 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
-          cache: ${{ steps.detect-package-manager.outputs.manager }}
+          cache: yarn
+          # Point cache check to the subfolder lockfile so cache detection works
+          cache-dependency-path: my-app/yarn.lock
 
       - name: Setup Pages
         uses: actions/configure-pages@v5
