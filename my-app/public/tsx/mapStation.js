@@ -21,47 +21,56 @@ export default function MapStation(
       console.log("click outside")
     }
 
+    const minWidth = 0.1
+    const charWidth = 0.03
+    const padding = 0.1;
+    const planeWidth = Math.max(
+      minWidth,
+      name.length * charWidth + padding
+    );
+
     return (
-        <a-image name={name} position={position} src="#icon-metro"  height="0.15" width="0.15" className="clickable" onclick={handleClick}>
+        <a-image name={name} position={position} src="#icon-metro"  height="0.1" width="0.1" className="clickable" onclick={handleClick}>
           <StationsInfo id={id} visible={panelVisible} />
           <a-plane
             name={name}
             src="#label-bg"
-            width="0.55"
-            height="0.12"
-            position="0.4 0 0"
+            width= {planeWidth}
+            height="0.075"
+            position={ (planeWidth/2 + 0.05) + " 0 0"}
             material="transparent: true"
             className="clickable"
+            align="left"
           >
-            <a-text value={name} name={name} position="-0.25 0 0.01" color="#FFFFFF" width="2" className="clickable" onclick={handleClick}/>
+            <a-text value={name} name={name} align="center" position="0 0 0.01" color="#FFFFFF" width="1.5" className="clickable" onclick={handleClick}/>
           </a-plane>
           <a-entity
-            position="0 -0.13 0"
-            layout="type: line; margin: 0.1"
+            position="0 -0.08 0"
+            layout="type: line; margin: 0.06"
           >
           {
-            services.includes("tranvia") && <a-image src="#icon-tranvia" className="service-icon" width= "0.075" height= "0.075"/>
+            services.includes("tranvia") && <a-image src="#icon-tranvia" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
           }
           {
-            services.includes("bus")  && <a-image src="#icon-bus" className="service-icon" width= "0.075" height= "0.075"/>
+            services.includes("bus")  && <a-image src="#icon-bus" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
           }
           {
-            services.includes("parking")  && <a-image src="#icon-parking" className="service-icon" width= "0.075" height= "0.075"/>
+            services.includes("parking")  && <a-image src="#icon-parking" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
           }
           {
-            services.includes("cargador")  && <a-image src="#icon-cargador" className="service-icon" width= "0.075" height= "0.075"/>
+            services.includes("cargador")  && <a-image src="#icon-cargador" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
           }
           {
-            services.includes("bici")  && <a-image src="#icon-bici" className="service-icon" width= "0.075" height= "0.075"/>
+            services.includes("bici")  && <a-image src="#icon-bici" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
           }
           {
-            services.includes("cercanias")  && <a-image src="#icon-cercanias" className="service-icon" width= "0.075" height= "0.075"/>
+            services.includes("cercanias")  && <a-image src="#icon-cercanias" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
           }
           {
-            services.includes("patines")  && <a-image src="#icon-patines" className="service-icon" width= "0.075" height= "0.075"/>
+            services.includes("patines")  && <a-image src="#icon-patines" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
           }
           {
-            services.includes("aeropuerto")  && <a-image src="#icon-aeropuerto" className="service-icon" width= "0.075" height= "0.075"/>
+            services.includes("aeropuerto")  && <a-image src="#icon-aeropuerto" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
           }
           </a-entity>
           
