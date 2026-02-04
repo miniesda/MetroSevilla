@@ -66,9 +66,12 @@ jobs:
           ${{ steps.detect-package-manager.outputs.runner }} next build
 
       - name: Verify output directory
-        run: ls -la ./out
+        run: |
+          ls -la ./out
+          find ./my-app/out -type l -ls
+          du -sh ./my-app/out
 
-      - name: Upload a test file
+      - name: Upload static site files
         uses: actions/upload-artifact@v4
         with:
           name: github-pages
