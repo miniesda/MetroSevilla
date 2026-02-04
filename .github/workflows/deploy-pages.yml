@@ -72,14 +72,48 @@ jobs:
       - name: Install dependencies
         run: ${{ steps.detect-package-manager.outputs.manager }} ${{ steps.detect-package-manager.outputs.command }}
 
-      - name: Build & Export
+      - name: Detect App Router
+        id: detect-app-router
+        run: |
+          if [ -d app ]; then
+            echo "uses_app_router=true" >> $GITHUB_OUTPUT
+          else
+            echo "uses_app_router=false" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Build
         run: |
           ${{ steps.detect-package-manager.outputs.runner }} next build
+
+      - name: Export (static) if possible
+        if: steps.detect-app-router.outputs.uses_app_router == 'false'
+        run: |
+          echo "Attempting 'next export' to create static 'out' directory..."
+          ${{ steps.detect-package-manager.outputs.runner }} next export -o out
+
+      - name: Skip export (App Router detected)
+        if: steps.detect-app-router.outputs.uses_app_router == 'true'
+        run: |
+          echo "App Router detected — skipping 'next export' (not compatible). To deploy this site you need a host that supports SSR (e.g., Vercel) or make the app fully exportable."
+
+      - name: Verify export output
+        if: steps.detect-app-router.outputs.uses_app_router == 'false'
+        run: |
+          if [ ! -d out ]; then
+            echo "Error: 'out' directory not found. 'next export' likely failed or the project is not exportable."
+            echo "Files in workspace:"
+            ls -la
+            echo "Contents of .next (if any):"
+            ls -la .next || true
+            exit 1
+          fi
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./out
+          name: github-pages
+          retention-days: 1
 
   deploy:
     environment:
