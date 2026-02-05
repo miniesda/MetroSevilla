@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 
-export default function StationsInfo({ id, visible }) {
+interface InfoProps {
+id: string | number;
+visible: string;
+}
+
+export default function StationsInfo({ id, visible }: InfoProps) {
   const [via1, setVia1] = useState("Loading...")
   const [via2, setVia2] = useState("Loading...")
 
   useEffect(() => {
-    document.getElementById("info-panel-"+id).setAttribute("visible", visible);
+    document.getElementById("info-panel-"+id)?.setAttribute("visible", visible);
     if (!visible) return
 
     const fetchData = async () => {
@@ -36,5 +41,3 @@ export default function StationsInfo({ id, visible }) {
       </a-plane>
     )
 }
-
-export { handleClick }

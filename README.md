@@ -3,14 +3,19 @@ Metro de sevilla augmented reality in Next.js
 
 using standard installation of next.js by [Official Documentation](https://nextjs.org/docs/app/getting-started/installation)
 
-extra dependencies:
+dependency:
 ```
-aframe
-aframe-react
-mindar-image-aframe
-aframe-layout-component
+nvm install 20.9.0
+nvm use 20.9.0
 ```
 
-included via <script>, npm packages throw errors on install:
+IMPORTANT!!
+dont use node ^v21 as npm canvas didnt deploy package yet
+If node 21 or higher is needed, use the javascript release
 
-`npm install aframe aframe-react mind-ar aframe-layout-component`
+extra dependencies included:
+```
+npm install aframe
+npm install aframe-react
+npm install mind-ar
+```

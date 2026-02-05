@@ -2,7 +2,6 @@
 import React, { Suspense } from 'react';
 import './App.css';
 import MindARViewer from '../../public/tsx/mindar-viewer';
-import StationsInfo from '../../public/tsx/stations-info';
 import { useSearchParams } from "next/navigation"
 
 function ARViewContent() {

@@ -1,22 +1,45 @@
 "use client"
 import StationsInfo from "./stations-info";
 import React from "react";
-import { useRef, useState } from 'react';
+import { useRef, useState, useEffect } from 'react';
 
 
-export default function MapStation(
-  {id, position, services, name}
-) {
-    const [panelVisible, setPanelVisible] = useState(false)
+type Service =
+  | "tranvia"
+  | "bus"
+  | "parking"
+  | "cargador"
+  | "bici"
+  | "cercanias"
+  | "patines"
+  | "aeropuerto";
+
+interface MapStationProps {
+  id: string | number;
+  position: string; // ej: "0 0 0"
+  services: Service[];
+  name: string;
+}
+
+export default function MapStation({
+  id,
+  position,
+  services,
+  name,
+}: MapStationProps) {
+
+    const [panelVisible, setPanelVisible] = useState<string>("false");
     const handleClick = () => {
-      setPanelVisible(true)
-      setTimeout(() => window.addEventListener("touchstart", handleClickOutside), 100)
+      setPanelVisible("true")
+      setTimeout(() => {
+        window.addEventListener("touchstart", handleClickOutside);
+      }, 100);
       
       console.log("click inside")
     }
 
-    const handleClickOutside = (evt) => {
-      setPanelVisible(false)
+    const handleClickOutside = (_evt: TouchEvent) => {
+      setPanelVisible("false")
       window.removeEventListener("touchstart", handleClickOutside)
       console.log("click outside")
     }
