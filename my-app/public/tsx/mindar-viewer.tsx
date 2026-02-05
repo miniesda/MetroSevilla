@@ -6,6 +6,7 @@ export default function App() {
     useEffect(() => {
     require("aframe");
     require("mind-ar/dist/mindar-image-aframe.prod.js");
+    require("aframe-layout-component");
   }, []);
 
   return (
@@ -30,28 +31,50 @@ export default function App() {
     
             <MapStation  id={2} name="Cavaleri" position="-0.3 -0.05 0" services={["patines", "bici"]}/>
     
-            <MapStation  id={3} name="San Juan Alto" position="0.05 0.3 0" services={["tranvia", "bici", "parking", "patines"]}/>
+            <MapStation  id={3} name="San Juan Alto" position="0.05 0.3 0" services={["bus", "bici", "parking", "patines"]}/>
           </a-entity>
           <a-entity mindar-image-target="targetIndex: 1">
-            <MapStation  id={4} name="San Juan Bajo" position="0 0 0" services={["tranvia", "bici", "parking", "patines"]}/>
+            <MapStation  id={4} name="San Juan Bajo" position="-0.2 0 0" services={["bus", "bici", "parking", "patines"]}/>
+
+            <MapStation  id={5} name="Blas Infante" position="0.2 0.15 0" services={["bus"]} cambioTramo={true}/>
           </a-entity>
           <a-entity mindar-image-target="targetIndex: 2">
-            <MapStation  id={4} name="San Juan Bajo" position="0 0 0" services={["tranvia", "bici", "parking", "patines"]}/>
+            <MapStation  id={6} name="P. Principes" position="-0.25 -0.1 0" services={["bici", "patines"]}/>
+
+            <MapStation  id={7} name="Plaza Cuba" position="-0.15 0.05 0" services={["bici"]}/>
+
+            <MapStation  id={8} name="Puerta Jerez" position="0.05 0.2 0" services={["bici", "tranvia"]}/>
           </a-entity>
           <a-entity mindar-image-target="targetIndex: 3">
-            <MapStation  id={4} name="San Juan Bajo" position="0 0 0" services={["tranvia", "bici", "parking", "patines"]}/>
+            <MapStation  id={9} name="Prado S.Sebastian" position="-0.18 0.05 0" services={["tranvia", "bici", "bus"]}/>
+
+            <MapStation  id={10} name="San Bernardo" position="0.1 -0.05 0" services={["tranvia", "bici", "bus", "cercanias"]}/>
           </a-entity>
           <a-entity mindar-image-target="targetIndex: 4">
-            <MapStation  id={4} name="San Juan Bajo" position="0 0 0" services={["tranvia", "bici", "parking", "patines"]}/>
+            <MapStation  id={11} name="Nervion" position="-0.1 0.2 0" services={["aeropuerto"]}/>
+
+            <MapStation  id={12} name="Gran Plaza" position="0.12 0.1 0" services={[]}/>
           </a-entity>
           <a-entity mindar-image-target="targetIndex: 5">
-            <MapStation  id={4} name="San Juan Bajo" position="0 0 0" services={["tranvia", "bici", "parking", "patines"]}/>
+            <MapStation  id={13} name="1 de Mayo" position="-0.03 0.3 0" services={[]}/>
+
+            <MapStation  id={14} name="Amate" position="0 0.07 0" services={[]}/>
+
+            <MapStation  id={15} name="La Plata" position="0.05 -0.12 0" services={[]}/>
+
+            <MapStation  id={16} name="Cocheras" position="0.1 -0.3 0" services={["bici", "patines"]}/>
           </a-entity>
           <a-entity mindar-image-target="targetIndex: 6">
-            <MapStation  id={4} name="San Juan Bajo" position="0 0 0" services={["tranvia", "bici", "parking", "patines"]}/>
+            <MapStation  id={17} name="Pablo Olavide" position="0.1 0.1 0" services={["bus", "bici", "patines"]} cambioTramo={true}/>
+
+            <MapStation  id={18} name="Condequinto" position="0.3 -0.2 0" services={["cargador", "bici", "parking", "patines"]}/>
           </a-entity>
           <a-entity mindar-image-target="targetIndex: 7">
-            <MapStation  id={4} name="San Juan Bajo" position="0 0 0" services={["tranvia", "bici", "parking", "patines"]}/>
+            <MapStation  id={19} name="Montequinto" position="0.4 0.25 0" services={["patines"]}/>
+
+            <MapStation  id={20} name="Europa" position="0.35 0.05 0" services={["patines"]}/>
+
+            <MapStation  id={21} name="Olivar de Quintos" position="0.25 -0.3 0" services={["bus", "parking"]}/>
           </a-entity>
           <a-camera position="0 0 0" look-controls="enabled: false" cursor="fuse: false; rayOrigin: mouse;" raycaster="far: 10000; objects: .clickable" camera rotation wasd-controls> </a-camera>
         </a-scene>

@@ -14,11 +14,23 @@ type Service =
   | "patines"
   | "aeropuerto";
 
+const serviceIcons: Record<Service, string> = {
+  tranvia: "#icon-tranvia",
+  bus: "#icon-bus",
+  parking: "#icon-parking",
+  cargador: "#icon-cargador",
+  bici: "#icon-bici",
+  cercanias: "#icon-cercanias",
+  patines: "#icon-patines",
+  aeropuerto: "#icon-aeropuerto",
+};
+
 interface MapStationProps {
   id: string | number;
   position: string; // ej: "0 0 0"
   services: Service[];
   name: string;
+  cambioTramo?: boolean;
 }
 
 export default function MapStation({
@@ -26,6 +38,7 @@ export default function MapStation({
   position,
   services,
   name,
+  cambioTramo = false,
 }: MapStationProps) {
 
     const [panelVisible, setPanelVisible] = useState<string>("false");
@@ -35,13 +48,13 @@ export default function MapStation({
         window.addEventListener("touchstart", handleClickOutside);
       }, 100);
       
-      console.log("click inside")
+      //console.log("click inside")
     }
 
     const handleClickOutside = (_evt: TouchEvent) => {
       setPanelVisible("false")
       window.removeEventListener("touchstart", handleClickOutside)
-      console.log("click outside")
+      //console.log("click outside")
     }
 
     const minWidth = 0.1
@@ -72,31 +85,20 @@ export default function MapStation({
             layout="type: line; margin: 0.06"
           >
           {
-            services.includes("tranvia") && <a-image src="#icon-tranvia" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
+            services.map(service => (
+                <a-image key={service} src={serviceIcons[service]} width="0.05" height="0.05">
+                    <a-plane width="0.05" height="0.05" color="#FFFFFF" />
+                </a-image>
+            ))
           }
-          {
-            services.includes("bus")  && <a-image src="#icon-bus" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
-          }
-          {
-            services.includes("parking")  && <a-image src="#icon-parking" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
-          }
-          {
-            services.includes("cargador")  && <a-image src="#icon-cargador" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
-          }
-          {
-            services.includes("bici")  && <a-image src="#icon-bici" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
-          }
-          {
-            services.includes("cercanias")  && <a-image src="#icon-cercanias" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
-          }
-          {
-            services.includes("patines")  && <a-image src="#icon-patines" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
-          }
-          {
-            services.includes("aeropuerto")  && <a-image src="#icon-aeropuerto" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
-          }
+
           </a-entity>
-          
+
+          {
+            cambioTramo && <a-plane width="0.3" height="0.05" color="#000000" position="0.1 0.08 0">
+                <a-text value="Salto de tramo" color="#FFFFFF" align="center" position="0 0 0.01" width="1"/>
+            </a-plane>
+          }
           
         </a-image>
     );

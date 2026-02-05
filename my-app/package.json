@@ -1,6 +1,6 @@
 {
   "name": "my-app",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,8 +10,8 @@
   },
   "dependencies": {
     "aframe": "^1.7.1",
-    "aframe-react": "^4.4.0",
     "mind-ar": "^1.2.5",
+    "aframe-layout-component": "4.3.1",
     "next": "16.1.6",
     "react": "18.2.0",
     "react-dom": "18.2.0"
