@@ -19,3 +19,7 @@ npm install aframe
 npm install aframe-react
 npm install mind-ar
 ```
+
+
+Datos encontrados:
+estacion de id 17 en la API es una estación "fantasma", sin datos de estimaciones de tiempos ni asociada a ninguna estación

@@ -66,7 +66,7 @@ export default function MapStation({
     );
 
     return (
-        <a-image name={name} position={position} src="#icon-metro"  height="0.1" width="0.1" className="clickable" onclick={handleClick}>
+        <a-image name={name} position={position} src={"#icon-"+ id}  height="0.1" width="0.1" className="clickable" onclick={handleClick}>
           <StationsInfo id={id} visible={panelVisible} />
           <a-plane
             name={name}
@@ -81,13 +81,12 @@ export default function MapStation({
             <a-text value={name} name={name} align="center" position="0 0 0.01" color="#FFFFFF" width="1.5" className="clickable" onclick={handleClick}/>
           </a-plane>
           <a-entity
-            position="0 -0.08 0"
+            position="0 -0.09 0"
             layout="type: line; margin: 0.06"
           >
           {
             services.map(service => (
-                <a-image key={service} src={serviceIcons[service]} width="0.05" height="0.05">
-                    <a-plane width="0.05" height="0.05" color="#FFFFFF" />
+                <a-image key={service} src={serviceIcons[service]} width="0.06" height="0.06">
                 </a-image>
             ))
           }
