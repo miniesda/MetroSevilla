@@ -5,7 +5,7 @@ import { useRef, useState } from 'react';
 
 
 export default function MapStation(
-  {id, position, services, name}
+  {id, position, services, name, cambioTramo=false}
 ) {
     const [panelVisible, setPanelVisible] = useState(false)
     const handleClick = () => {
@@ -71,6 +71,12 @@ export default function MapStation(
           }
           {
             services.includes("aeropuerto")  && <a-image src="#icon-aeropuerto" className="service-icon" width= "0.05" height= "0.05"><a-plane width="0.05" height="0.05" color="#FFFFFF"/></a-image>
+          }
+
+          {
+            cambioTramo && <a-plane width="0.3" height="0.05" color="#000000" position="0.1 0.08 0">
+                <a-text value="Salto de tramo" color="#FFFFFF" align="center" position="0 0 0.01" width="1"/>
+            </a-plane>
           }
           </a-entity>
           
